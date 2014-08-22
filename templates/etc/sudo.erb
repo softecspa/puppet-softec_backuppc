@@ -1,0 +1,9 @@
+Host_Alias BACKUPPC=<%= @fqdn %>
+
+Cmnd_Alias CMD_TAR_RESTORE_BACKUPPC=/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /bin/tar -x *
+Cmnd_Alias TAR_RESTORE_BACKUPPC=/bin/tar -x *
+Cmnd_Alias CMD_RSYNC_BACKUPPC=/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /usr/bin/rsync
+Cmnd_Alias TAR_CREATE_BACKUPPC=/bin/tar -c *
+Cmnd_Alias CMD_TAR_CREATE_BACKUPPC=/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /bin/tar -c *
+
+softecbackuppc,backuppc BACKUPPC=(root) NOPASSWD:CMD_TAR_CREATE_BACKUPPC,CMD_TAR_RESTORE_BACKUPPC,CMD_RSYNC_BACKUPPC,TAR_CREATE_BACKUPPC,TAR_RESTORE_BACKUPPC
