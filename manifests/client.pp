@@ -52,50 +52,6 @@ class softec_backuppc::client (
   }
 
   softec_sudo::conf {'backuppc':
-    content => template('softec_backuppc/etc/sudo.erb'),
+    content => template('softec_backuppc/etc/sudo_client.erb'),
   }
-
-  #Softec_sudo::Alias {
-  #  target  => '/etc/sudoers.d/backuppc'
-  #}
-  #
-  #Softec_sudo::Spec {
-  #  target  => '/etc/sudoers.d/backuppc'
-  #}
-  #
-  #softec_sudo::alias {'BACKUPPC':
-  #  sudo_alias  => 'Host_Alias',
-  #  items       => $::fqdn,
-  #}
-  #
-  #softec_sudo::alias {'CMD_TAR_CREATE_BACKUPPC':
-  #  sudo_alias  => 'Cmnd_Alias',
-  #  items       => '/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /bin/tar -c *',
-  #}
-  #
-  #softec_sudo::alias {'CMD_TAR_RESTORE_BACKUPPC':
-  #  sudo_alias  => 'Cmnd_Alias',
-  #  items       => '/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /bin/tar -x *',
-  #}
-  #
-  #softec_sudo::alias {'CMD_RSYNC_BACKUPPC':
-  #  sudo_alias  => 'Cmnd_Alias',
-  #  items       => '/usr/bin/nice -n19 /usr/bin/ionice -c2 -n7 /usr/bin/rsync',
-  #}
-  #
-  #softec_sudo::alias {'TAR_CREATE_BACKUPPC':
-  #  sudo_alias  => 'Cmnd_Alias',
-  #  items       => '/bin/tar -c *',
-  #}
-  #
-  #softec_sudo::alias {'TAR_RESTORE_BACKUPPC':
-  #  sudo_alias  => 'Cmnd_Alias',
-  #  items       => '/bin/tar -x *',
-  #}
-  #
-  ##softec_sudo::spec {'backuppc':
-  #  users     => ['softecbackuppc', 'backuppc' ],
-  #  hosts     => 'BACKUPPC',
-  #  commands  => ['(root) NOPASSWD:CMD_TAR_CREATE_BACKUPPC', 'CMD_TAR_RESTORE_BACKUPPC', 'CMD_RSYNC_BACKUPPC', 'TAR_CREATE_BACKUPPC', 'TAR_RESTORE_BACKUPPC'],
-  #}
 }

@@ -41,4 +41,8 @@ class softec_backuppc::server (
     server_tag   => $server_tag,
     use_ssh_auth => true,
   }
+
+  softec_sudo::conf {'backuppc_nagios':
+    source  => 'puppet:///modules/softec_backuppc/etc/sudo_server'
+  }
 }

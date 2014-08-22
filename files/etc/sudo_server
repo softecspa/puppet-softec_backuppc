@@ -1,0 +1,3 @@
+Cmnd_Alias  NAGIOS_CHECK_BACKUPPC = /usr/lib/nagios/plugins/check_backuppc
+
+nagios  ALL=(backuppc) NOPASSWD:NAGIOS_CHECK_BACKUPPC
